@@ -2,9 +2,10 @@
  * FlxBitmapFont
  * -- Part of the Flixel Power Tools set
  * 
- * Updated for the Flixel 2.5 Plugin system
+ * v1.3 Exposed character width / height values
+ * v1.2 Updated for the Flixel 2.5 Plugin system
  * 
- * @version 1.3 - May 23rd 2011
+ * @version 1.3 - May 5th 2011
  * @link http://www.photonstorm.com
  * @author Richard Davey / Photon Storm
  * @see Requires FlxMath
@@ -65,7 +66,7 @@ package org.flixel.plugin.photonstorm
 		/**
 		 * Text Set 1 = !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
 		 */
-		public static const TEXT_SET1:String = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
+		public static const TEXT_SET1:String = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
 		
 		/**
 		 * Text Set 2 =  !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ
@@ -123,8 +124,8 @@ package org.flixel.plugin.photonstorm
 		private var fontSet:BitmapData;
 		private var offsetX:uint;
 		private var offsetY:uint;
-		private var characterWidth:uint;
-		private var characterHeight:uint;
+		public var characterWidth:uint;
+		public var characterHeight:uint;
 		private var characterSpacingX:uint;
 		private var characterSpacingY:uint;
 		private var characterPerRow:uint;
@@ -303,7 +304,7 @@ package org.flixel.plugin.photonstorm
 		}
 		
 		/**
-		 * Returns a single character from the font set as an FlxsSprite.
+		 * Returns a single character from the font set as an FlxSprite.
 		 * 
 		 * @param	char	The character you wish to have returned.
 		 * 
@@ -323,6 +324,26 @@ package org.flixel.plugin.photonstorm
 			output.pixels = temp;
 			
 			return output;
+		}
+		
+		/**
+		 * Returns a single character from the font set as bitmapData
+		 * 
+		 * @param	char	The character you wish to have returned.
+		 * 
+		 * @return	<code>bitmapData</code> containing a single character from the font set.
+		 */
+		public function getCharacterAsBitmapData(char:String):BitmapData
+		{
+			var temp:BitmapData = new BitmapData(characterWidth, characterHeight, true, 0xf);
+
+			//if (grabData[char.charCodeAt(0)] is Rectangle && char.charCodeAt(0) != 32)
+			if (grabData[char.charCodeAt(0)] is Rectangle)
+			{
+				temp.copyPixels(fontSet, grabData[char.charCodeAt(0)], new Point(0, 0));
+			}
+			
+			return temp;
 		}
 		
 		/**

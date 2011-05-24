@@ -2,9 +2,9 @@
  * FlxStarField
  * -- Part of the Flixel Power Tools set
  * 
- * Updated for the Flixel 2.5 Plugin system
+ * v1.1 Updated for the Flixel 2.5 Plugin system
  * 
- * @version 1.1 - May 23rd 2011
+ * @version 1.1 - April 23rd 2011
  * @link http://www.photonstorm.com
  * @author Richard Davey / Photon Storm
 */
@@ -47,7 +47,7 @@ package org.flixel.plugin.photonstorm
 		private var starMap:BitmapData;
 		private var starfieldType:int;
 		
-		private var backgroundColor:int = 0xff000000;
+		private var backgroundColor:uint = 0xff000000;
 		
 		private var updateSpeed:int;
 		private var tick:int;
@@ -136,7 +136,7 @@ package org.flixel.plugin.photonstorm
 		 * 
 		 * @param	backgroundColor
 		 */
-		public function setBackgroundColor(backgroundColor:int):void
+		public function setBackgroundColor(backgroundColor:uint):void
 		{
 			cls.fillRect(new Rectangle(0, 0, width, height), backgroundColor);
 		}
@@ -148,7 +148,7 @@ package org.flixel.plugin.photonstorm
 		 * @param	lowestColor		The color given to the stars furthest away from the camera (i.e. the slowest stars), typically the darker colour
 		 * @param	highestColor	The color given to the stars cloest to the camera (i.e. the fastest stars), typically the brighter colour
 		 */
-		public function setStarDepthColors(depth:int, lowestColor:int = 0xff585858, highestColor:int = 0xffF4F4F4):void
+		public function setStarDepthColors(depth:int, lowestColor:uint = 0xff585858, highestColor:uint = 0xffF4F4F4):void
 		{
 			//	Depth is the same, we just need to update the gradient then
 			depthColours = FlxGradient.createGradientArray(1, depth, [lowestColor, highestColor]);

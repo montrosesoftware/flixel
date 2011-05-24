@@ -6,7 +6,7 @@
  * 
  * v1.3 Update fixes bug where it wouldn't accurately perform collision on AutoBuffered rotated sprites, or sprites with offsets
  * 
- * @version 1.3 - May 27th 2011
+ * @version 1.3 - April 27th 2011
  * @link http://www.photonstorm.com
  * @author Richard Davey / Photon Storm
 */

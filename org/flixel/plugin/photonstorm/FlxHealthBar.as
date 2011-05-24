@@ -2,9 +2,10 @@
  * FlxHealthBar
  * -- Part of the Flixel Power Tools set
  * 
- * Updated for the Flixel 2.5 Plugin system
+ * v1.2 Fixed colour values for fill and gradient to include alpha
+ * v1.1 Updated for the Flixel 2.5 Plugin system
  * 
- * @version 1.1 - May 23rd 2011
+ * @version 1.2 - May 5th 2011
  * @link http://www.photonstorm.com
  * @author Richard Davey / Photon Storm
 */
@@ -159,12 +160,12 @@ package org.flixel.plugin.photonstorm
 		 * Creates a solid-colour filled health bar in the given colours, with optional 1px thick border.<br />
 		 * All colour values are in 0xAARRGGBB format, so if you want a slightly transparent health bar give it lower AA values.
 		 * 
-		 * @param	empty		The color of the health bar when empty (the background colour)
-		 * @param	fill		The color of the health bar when full (the foreground colour)
+		 * @param	empty		The color of the health bar when empty in 0xAARRGGBB format (the background colour)
+		 * @param	fill		The color of the health bar when full in 0xAARRGGBB format (the foreground colour)
 		 * @param	showBorder	Should the bar be outlined with a 1px solid border?
-		 * @param	border		The border colour
+		 * @param	border		The border colour in 0xAARRGGBB format
 		 */
-		public function createFilledBar(empty:int, fill:int, showBorder:Boolean = false, border:int = 0xffFFFFFF):void
+		public function createFilledBar(empty:uint, fill:uint, showBorder:Boolean = false, border:uint = 0xffffffff):void
 		{
 			barType = BAR_FILLED;
 			
@@ -190,14 +191,14 @@ package org.flixel.plugin.photonstorm
 		 * Creates a gradient filled health bar using the given colour ranges, with optional 1px thick border.<br />
 		 * All colour values are in 0xAARRGGBB format, so if you want a slightly transparent health bar give it lower AA values.
 		 * 
-		 * @param	empty		Array of colour values used to create the gradient of the health bar when empty (the background colour)
-		 * @param	fill		Array of colour values used to create the gradient of the health bar when full (the foreground colour)
+		 * @param	empty		Array of colour values used to create the gradient of the health bar when empty, each colour must be in 0xAARRGGBB format (the background colour)
+		 * @param	fill		Array of colour values used to create the gradient of the health bar when full, each colour must be in 0xAARRGGBB format (the foreground colour)
 		 * @param	chunkSize	If you want a more old-skool looking chunky gradient, increase this value!
 		 * @param	rotation	Angle of the gradient in degrees. 90 = top to bottom, 180 = left to right. Any angle is valid
 		 * @param	showBorder	Should the bar be outlined with a 1px solid border?
-		 * @param	border		The border colour
+		 * @param	border		The border colour in 0xAARRGGBB format
 		 */
-		public function createGradientBar(empty:Array, fill:Array, chunkSize:int = 1, rotation:int = 180, showBorder:Boolean = false, border:int = 0xffFFFFFF):void
+		public function createGradientBar(empty:Array, fill:Array, chunkSize:int = 1, rotation:int = 180, showBorder:Boolean = false, border:uint = 0xffffffff):void
 		{
 			barType = BAR_GRADIENT;
 			
@@ -229,7 +230,7 @@ package org.flixel.plugin.photonstorm
 		 * @param	emptyBackground		If no background (empty) image is given, use this colour value instead. 0xAARRGGBB format
 		 * @param	fillBackground		If no foreground (fill) image is given, use this colour value instead. 0xAARRGGBB format
 		 */
-		public function createImageBar(empty:Class = null, fill:Class = null, emptyBackground:int = 0xff000000, fillBackground:int = 0xff00ff00):void
+		public function createImageBar(empty:Class = null, fill:Class = null, emptyBackground:uint = 0xff000000, fillBackground:uint = 0xff00ff00):void
 		{
 			barType = BAR_IMAGE;
 			

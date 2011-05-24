@@ -2,9 +2,9 @@
  * FlxGridOverlay
  * -- Part of the Flixel Power Tools set
  * 
- * Updated for the Flixel 2.5 Plugin system
+ * v1.1 Updated for the Flixel 2.5 Plugin system
  * 
- * @version 1.1 - May 23rd 2011
+ * @version 1.1 - April 23rd 2011
  * @link http://www.photonstorm.com
  * @author Richard Davey / Photon Storm
 */
@@ -26,7 +26,7 @@ package org.flixel.plugin.photonstorm
 		 * Creates an FlxSprite of the given width and height filled with a checkerboard pattern.<br />
 		 * Each grid cell is the specified width and height, and alternates between two colors.<br />
 		 * If alternate is true each row of the pattern will be offset, for a proper checkerboard style. If false each row will be the same colour, creating a striped-pattern effect.<br />
-		 * So to create an 8x8 grid you'd call create(8,8,
+		 * So to create an 8x8 grid you'd call create(8,8)
 		 * 
 		 * @param	cellWidth		The grid cell width
 		 * @param	cellHeight		The grid cell height
@@ -39,7 +39,7 @@ package org.flixel.plugin.photonstorm
 		 * 
 		 * @return	FlxSprite of given width/height
 		 */
-		public static function create(cellWidth:int, cellHeight:int, width:int = -1, height:int = -1, addLegend:Boolean = false, alternate:Boolean = true, color1:int = 0xffe7e6e6, color2:int = 0xffd9d5d5):FlxSprite
+		public static function create(cellWidth:int, cellHeight:int, width:int = -1, height:int = -1, addLegend:Boolean = false, alternate:Boolean = true, color1:uint = 0xffe7e6e6, color2:uint = 0xffd9d5d5):FlxSprite
 		{
 			if (width == -1)
 			{
@@ -61,6 +61,7 @@ package org.flixel.plugin.photonstorm
 			var output:FlxSprite = new FlxSprite().makeGraphic(width, height);
 			
 			output.pixels = grid;
+			output.dirty = true;
 			
 			return output;
 		}
@@ -83,7 +84,7 @@ package org.flixel.plugin.photonstorm
 		 * 
 		 * @return	The modified source FlxSprite
 		 */
-		public static function overlay(source:FlxSprite, cellWidth:int, cellHeight:int, width:int = -1, height:int = -1, addLegend:Boolean = false, alternate:Boolean = true, color1:int = 0x88e7e6e6, color2:int = 0x88d9d5d5):FlxSprite
+		public static function overlay(source:FlxSprite, cellWidth:int, cellHeight:int, width:int = -1, height:int = -1, addLegend:Boolean = false, alternate:Boolean = true, color1:uint = 0x88e7e6e6, color2:uint = 0x88d9d5d5):FlxSprite
 		{
 			if (width == -1)
 			{
@@ -137,12 +138,12 @@ package org.flixel.plugin.photonstorm
 			
 		}
 		
-		private static function createGrid(cellWidth:int, cellHeight:int, width:int, height:int, alternate:Boolean, color1:int, color2:int):BitmapData
+		public static function createGrid(cellWidth:int, cellHeight:int, width:int, height:int, alternate:Boolean, color1:uint, color2:uint):BitmapData
 		{
 			//	How many cells can we fit into the width/height? (round it UP if not even, then trim back)
 			
-			var rowColor:int = color1;
-			var lastColor:int = color1;
+			var rowColor:uint = color1;
+			var lastColor:uint = color1;
 			var grid:BitmapData = new BitmapData(width, height, true);
 			
 			//	If there aren't an even number of cells in a row then we need to swap the lastColor value

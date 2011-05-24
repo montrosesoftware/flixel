@@ -2,9 +2,11 @@
  * FlxGradient
  * -- Part of the Flixel Power Tools set
  * 
- * Updated for the Flixel 2.5 Plugin system
+ * v1.6 Fixed bug where gradients with chunk sizes > 1 would ignore alpha values
+ * v1.5 Alpha values used in the gradient map
+ * v1.4 Updated for the Flixel 2.5 Plugin system
  * 
- * @version 1.5 - May 23rd 2011
+ * @version 1.6 - May 9th 2011
  * @link http://www.photonstorm.com
  * @author Richard Davey / Photon Storm
  * @see Requires FlxMath
@@ -57,7 +59,7 @@ package org.flixel.plugin.photonstorm
 			
 			for (var ai:int = 0; ai < colors.length; ai++)
 			{
-				alpha.push(1);
+				alpha.push(FlxColor.getAlphaFloat(colors[ai]));
 			}
 			
 			var ratio:Array = new Array();
@@ -157,7 +159,7 @@ package org.flixel.plugin.photonstorm
 				s.graphics.drawRect(0, 0, width, height / chunkSize);
 			}
 
-			var data:BitmapData = new BitmapData(width, height, true);
+			var data:BitmapData = new BitmapData(width, height, true, 0x0);
 			
 			if (chunkSize == 1)
 			{
@@ -165,7 +167,7 @@ package org.flixel.plugin.photonstorm
 			}
 			else
 			{
-				var tempBitmap:Bitmap = new Bitmap(new BitmapData(width, height / chunkSize));
+				var tempBitmap:Bitmap = new Bitmap(new BitmapData(width, height / chunkSize, true, 0x0));
 				tempBitmap.bitmapData.draw(s);
 				tempBitmap.scaleY = chunkSize;
 				

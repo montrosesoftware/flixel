@@ -2,9 +2,10 @@
  * FlxButtonPlus
  * -- Part of the Flixel Power Tools set
  * 
- * Updated for the Flixel 2.5 Plugin system
+ * v1.3 Updated gradient colour values to include alpha
+ * v1.2 Updated for the Flixel 2.5 Plugin system
  * 
- * @version 1.2 - May 23rd 2011
+ * @version 1.3 - May 5th 2011
  * @link http://www.photonstorm.com
  * @author Richard Davey / Photon Storm
 */
@@ -83,17 +84,17 @@ package org.flixel.plugin.photonstorm
 		/**
 		 * The 1px thick border color that is drawn around this button
 		 */
-		public var borderColor:int = 0xffffffff;
+		public var borderColor:uint = 0xffffffff;
 		
 		/**
 		 * The color gradient of the button in its in-active (not hovered over) state
 		 */
-		public var offColor:Array = [0x008000, 0x00FF00];
+		public var offColor:Array = [0xff008000, 0xff00FF00];
 		
 		/**
 		 * The color gradient of the button in its hovered state
 		 */
-		public var onColor:Array = [0x800000, 0xFF0000];
+		public var onColor:Array = [0xff800000, 0xffff0000];
 		
 		private var _x:int;
 		private var _y:int;

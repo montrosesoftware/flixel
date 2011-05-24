@@ -2,9 +2,9 @@
  * FlxFlod
  * -- Part of the Flixel Power Tools set
  * 
- * Updated for the Flixel 2.5 Plugin system
+ * v1.2 Updated for the Flixel 2.5 Plugin system
  * 
- * @version 1.2 - May 23rd 2011
+ * @version 1.2 - April 23rd 2011
  * @link http://www.photonstorm.com
  * @author Richard Davey / Photon Storm
 */

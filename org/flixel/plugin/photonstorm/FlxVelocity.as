@@ -2,9 +2,9 @@
  * FlxVelocity
  * -- Part of the Flixel Power Tools set
  * 
- * Updated for the Flixel 2.5 Plugin system
+ * v1.3 Updated for the Flixel 2.5 Plugin system
  * 
- * @version 1.3 - May 23rd 2011
+ * @version 1.3 - April 23rd 2011
  * @link http://www.photonstorm.com
  * @author Richard Davey / Photon Storm
  * @see Depends on FlxMath
