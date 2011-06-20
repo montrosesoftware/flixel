@@ -5,8 +5,6 @@ package org.flixel.plugin.box2d.entities.base {
 	import org.flixel.FlxG;
 	import org.flixel.FlxSprite;
 
-	import com.u2i.games.frameworks.flixelbox2d.states.State;
-
 	public class CircleEntity extends Entity
 	{
 		protected var radius:Number;

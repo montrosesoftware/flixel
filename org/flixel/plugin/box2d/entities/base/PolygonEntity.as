@@ -3,11 +3,10 @@ package org.flixel.plugin.box2d.entities.base {
 	import Box2D.Collision.Shapes.b2PolygonShape;
 	import Box2D.Dynamics.b2Body;
 
-	import com.u2i.games.frameworks.flixelbox2d.utils.FlxB2Point;
-
 	import org.flixel.FlxG;
 	import org.flixel.FlxPoint;
 	import org.flixel.FlxSprite;
+	import org.flixel.plugin.box2d.utils.FlxB2Point;
 
 	public class PolygonEntity extends Entity {
 

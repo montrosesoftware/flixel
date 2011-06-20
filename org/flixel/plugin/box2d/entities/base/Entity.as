@@ -7,9 +7,8 @@ package org.flixel.plugin.box2d.entities.base {
 
 	import org.flixel.FlxG;
 	import org.flixel.FlxSprite;
-
-	import com.u2i.games.frameworks.flixelbox2d.materials.BaseMaterial;
-	import com.u2i.games.frameworks.flixelbox2d.states.State;
+	import org.flixel.plugin.box2d.materials.BaseMaterial;
+	import org.flixel.plugin.box2d.states.State;
 
 	public class Entity extends FlxSprite
 	{

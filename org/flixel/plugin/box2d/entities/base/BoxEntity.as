@@ -4,8 +4,6 @@ package org.flixel.plugin.box2d.entities.base {
 	import org.flixel.FlxG;
 	import org.flixel.FlxSprite;
 
-	import com.u2i.games.frameworks.flixelbox2d.states.State;
-
 	public class BoxEntity extends Entity
 	{
 		public function BoxEntity(X:int, Y:int, Width:uint, Height:uint, SimpleGraphic:Class=null)
