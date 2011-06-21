@@ -1,7 +1,7 @@
 package org.flixel.plugin.box2d.entities {
 	import Box2D.Dynamics.b2Body;
 
-	import com.u2i.games.frameworks.flixelbox2d.entities.base.BoxEntity;
+	import org.flixel.plugin.box2d.entities.base.BoxEntity;
 
 	public class KineticBoxEntity extends BoxEntity
 	{

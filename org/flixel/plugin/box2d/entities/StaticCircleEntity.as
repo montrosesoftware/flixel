@@ -1,7 +1,7 @@
 package org.flixel.plugin.box2d.entities {
 	import Box2D.Dynamics.b2Body;
 
-	import com.u2i.games.frameworks.flixelbox2d.entities.base.CircleEntity;
+	import org.flixel.plugin.box2d.entities.base.CircleEntity;
 
 	public class StaticCircleEntity extends CircleEntity
 	{

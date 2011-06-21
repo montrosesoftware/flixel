@@ -1,6 +1,7 @@
 package org.flixel.plugin.box2d.entities.base {
 
 	import Box2D.Collision.Shapes.b2PolygonShape;
+	import Box2D.Common.Math.b2Vec2;
 	import Box2D.Dynamics.b2Body;
 
 	import org.flixel.FlxG;
@@ -16,7 +17,6 @@ package org.flixel.plugin.box2d.entities.base {
 
 			super(X, Y, SimpleGraphic);
 			this.vertices = Vertices;
-
 			this.setDimentions();
 		}
 
@@ -24,7 +24,9 @@ package org.flixel.plugin.box2d.entities.base {
 			var xValues:Array = [];
 			var yValues:Array = [];
 
-			for each(var vp:FlxB2Point in this.vertices) {
+			var vp:Object;
+
+			for each(vp in this.vertices) {
 				xValues.push(vp.x);
 				yValues.push(vp.y);
 			}
@@ -46,11 +48,16 @@ package org.flixel.plugin.box2d.entities.base {
 		override protected function createB2Shape():void {
 			this._shape = new b2PolygonShape();
 
-			var b2Vertices:Array = [];
-			for each(var point:FlxB2Point in this.vertices) {
-				b2Vertices.push(point.toB2Vec());
+			if(this.vertices[0] is FlxB2Point) {
+				var b2Vertices:Array = [];
+				for each(var point:FlxB2Point in this.vertices) {
+					b2Vertices.push(point.toB2Vec());
+				}
+
+				this.vertices = b2Vertices;
 			}
-			(this._shape as b2PolygonShape).SetAsArray(b2Vertices, b2Vertices.length);
+
+			(this._shape as b2PolygonShape).SetAsArray(this.vertices, this.vertices.length);
 		}
 
 	}
