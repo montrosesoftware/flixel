@@ -1,7 +1,10 @@
 package org.flixel.plugin.box2d.entities {
 
+	import Box2D.Common.Math.b2Vec2;
 	import Box2D.Dynamics.b2Body;
 
+	import org.flixel.FlxPoint;
+	import org.flixel.plugin.box2d.entities.base.Entity;
 	import org.flixel.plugin.box2d.entities.base.PolygonEntity;
 
 	public class DynamicPolygonEntity extends PolygonEntity {
@@ -12,10 +15,9 @@ package org.flixel.plugin.box2d.entities {
 		}
 
 		override public function update():void {
-			this.x = (this._obj.GetPosition().x * GC.RATIO) - this.width / 2;
-			this.y = (this._obj.GetPosition().y * GC.RATIO) - this.height / 2;
+			this.x = (this._obj.GetPosition().x * GC.RATIO);
+			this.y = (this._obj.GetPosition().y * GC.RATIO);
 			this.angle = this._obj.GetAngle() * (180 / Math.PI);
-
 			super.update();
 		}
 	}

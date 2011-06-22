@@ -4,7 +4,8 @@ package org.flixel.plugin.box2d.entities.base {
 	import Box2D.Common.Math.b2Vec2;
 	import Box2D.Dynamics.b2Body;
 
-	import org.flixel.FlxG;
+	import com.u2i.utils.ArrayUtils;
+
 	import org.flixel.FlxPoint;
 	import org.flixel.FlxSprite;
 	import org.flixel.plugin.box2d.utils.FlxB2Point;
@@ -17,6 +18,7 @@ package org.flixel.plugin.box2d.entities.base {
 
 			super(X, Y, SimpleGraphic);
 			this.vertices = Vertices;
+			this.origin = new FlxPoint(0,0);
 			this.setDimentions();
 		}
 
@@ -31,17 +33,8 @@ package org.flixel.plugin.box2d.entities.base {
 				yValues.push(vp.y);
 			}
 
-			xValues.sort();
-			yValues.sort();
-
-			var minX:Number = xValues[0];
-			var maxX:Number = xValues[xValues.length-1];
-
-			var minY:Number = yValues[0];
-			var maxY:Number = yValues[xValues.length-1];
-
-			this.width = maxX - minX;
-			this.height = maxY - minY;
+			this.width =  ArrayUtils.getMaxNumberValue(xValues) - ArrayUtils.getMinNumberValue(xValues);
+			this.height = ArrayUtils.getMaxNumberValue(yValues) - ArrayUtils.getMinNumberValue(yValues);
 		}
 
 
