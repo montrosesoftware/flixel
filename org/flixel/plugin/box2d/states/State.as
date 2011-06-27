@@ -47,7 +47,7 @@ package org.flixel.plugin.box2d.states {
 
 		override public function update():void
 		{
-			this.world.Step(FlxG.elapsed, 5, 20);
+			this.world.Step(1/60, 6, 20);
 			this.world.ClearForces();
 			if(this._debugMode) {
 				this.world.DrawDebugData();
