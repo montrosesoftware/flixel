@@ -31,7 +31,7 @@ package org.flixel.plugin.u2i
 		}
 		
 		public function unpauseGame():void {
-			FlxG.paused = true;
+			FlxG.paused = false;
 			for each(var sound:FlxSound in FlxG.sounds.members) {
 				sound.resume();
 			}
