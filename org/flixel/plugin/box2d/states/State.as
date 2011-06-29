@@ -1,6 +1,5 @@
 package org.flixel.plugin.box2d.states {
 	import Box2D.Common.Math.b2Vec2;
-	import Box2D.Dynamics.Joints.b2MouseJoint;
 	import Box2D.Dynamics.b2DebugDraw;
 	import Box2D.Dynamics.b2World;
 
@@ -9,9 +8,9 @@ package org.flixel.plugin.box2d.states {
 
 	import org.flixel.FlxG;
 	import org.flixel.FlxSprite;
-	import org.flixel.FlxState;
+	import org.flixel.plugin.u2i.FlixelState;
 
-	public class State extends FlxState
+	public class State extends FlixelState
 	{
 		//Mouse
 		protected var mouseJoints:Array = new Array();
