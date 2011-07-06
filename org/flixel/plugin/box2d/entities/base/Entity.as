@@ -67,7 +67,6 @@ package org.flixel.plugin.box2d.entities.base {
 				this.x + this.width < 0 ||
 				this.y + this.height < 0 ||
 				this.y + this.height > FlxG.height) {
-				trace('removed an object from the game');
 			}
 			super.update();
 		}
