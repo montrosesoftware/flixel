@@ -1,5 +1,6 @@
 package org.flixel.plugin.box2d.states {
 	import Box2D.Common.Math.b2Vec2;
+	import Box2D.Dynamics.Joints.b2MouseJoint;
 	import Box2D.Dynamics.b2DebugDraw;
 	import Box2D.Dynamics.b2World;
 
@@ -47,6 +48,19 @@ package org.flixel.plugin.box2d.states {
 		override public function update():void
 		{
 			this.world.Step(FlxG.elapsed, 10, 10);
+
+			var currentMousePosition:b2Vec2 = new b2Vec2(FlxG.mouse.x / GC.RATIO, FlxG.mouse.y / GC.RATIO);
+
+			if(this.mouseJoints) {
+				var mouseJoint:b2MouseJoint;
+				for(var i:int=0; i <= this.mouseJoints.length; i++) {
+					mouseJoint = (this.mouseJoints[i] as b2MouseJoint);
+					if(mouseJoint) {
+						mouseJoint.SetTarget(currentMousePosition);
+					}
+				}
+			}
+
 			this.world.ClearForces();
 			if(this._debugMode) {
 				this.world.DrawDebugData();
