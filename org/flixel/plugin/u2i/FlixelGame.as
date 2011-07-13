@@ -24,6 +24,7 @@ package org.flixel.plugin.u2i
 		}
 
 		public function pauseGame():void {
+			FlxG.mute = true;
 			FlxG.paused = true;
 			for each(var sound:FlxSound in FlxG.sounds.members) {
 				sound.pause();
@@ -35,6 +36,7 @@ package org.flixel.plugin.u2i
 			for each(var sound:FlxSound in FlxG.sounds.members) {
 				sound.resume();
 			}
+			FlxG.mute = false;
 		}
 
 		public function destroyGame():void {}
