@@ -15,8 +15,6 @@ package org.flixel.plugin.u2i
 		}
 
 		override public function create():void {
-			FlxG.paused = true;
-			FlxG.mute = true;
 			FlxG.stage.dispatchEvent(new GameEvent(GameEvent.GAME_START));
 			super.create();
 		}

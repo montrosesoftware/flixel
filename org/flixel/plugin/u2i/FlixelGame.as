@@ -32,6 +32,6 @@ package org.flixel.plugin.u2i
 			FlxG.resumeSounds();
 		}
 
-		public function destroyGame():void {}
+		public function destroyGame():void { FlxG.pauseSounds(); }
 	}
 }
