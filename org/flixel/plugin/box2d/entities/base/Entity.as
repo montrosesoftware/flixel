@@ -9,6 +9,7 @@ package org.flixel.plugin.box2d.entities.base {
 	import org.flixel.FlxSprite;
 	import org.flixel.plugin.box2d.materials.BaseMaterial;
 	import org.flixel.plugin.box2d.states.State;
+	import org.flixel.plugin.photonstorm.FlxMath;
 
 	public class Entity extends FlxSprite
 	{
@@ -50,8 +51,8 @@ package org.flixel.plugin.box2d.entities.base {
 
 		protected function createB2BodyDefinition():void {
 			this._bodyDef = new b2BodyDef();
-			this._bodyDef.position.Set((this.x + (this.width/2)) / GC.RATIO, (this.y + (this.height/2)) / GC.RATIO);
-			this._bodyDef.angle = this.angle * (Math.PI / 180);
+			this._bodyDef.position.Set(this.x / GC.RATIO, this.y / GC.RATIO);
+			this._bodyDef.angle = FlxMath.asRadians(this.angle);
 			this._bodyDef.type = this._type;
 			this._bodyDef.userData = this._userData;
 			this._bodyDef.userData.contactPoints = 0;
