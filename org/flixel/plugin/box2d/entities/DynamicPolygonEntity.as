@@ -15,8 +15,12 @@ package org.flixel.plugin.box2d.entities {
 		}
 
 		override public function update():void {
-			this.x = (this._obj.GetPosition().x * GC.RATIO);
-			this.y = (this._obj.GetPosition().y * GC.RATIO);
+			if(this.velocity.x == 0) {
+				this.x = (this._obj.GetPosition().x * GC.RATIO);
+			}
+			if(this.velocity.y == 0) {
+				this.y = (this._obj.GetPosition().y * GC.RATIO);
+			}
 			this.angle = this._obj.GetAngle() * (180 / Math.PI);
 			super.update();
 		}
