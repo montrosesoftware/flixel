@@ -2,6 +2,8 @@ package org.flixel.plugin.u2i
 {
 	import com.u2i.interfaces.IGame;
 
+	import flash.events.Event;
+
 	import org.flixel.FlxG;
 	import org.flixel.FlxGame;
 
@@ -33,5 +35,8 @@ package org.flixel.plugin.u2i
 		}
 
 		public function destroyGame():void { FlxG.pauseSounds(); }
+
+		override protected function onFocus(FlashEvent:Event=null):void	{ return; }
+		override protected function onFocusLost(FlashEvent:Event=null):void { return; }
 	}
 }
