@@ -34,7 +34,10 @@ package org.flixel.plugin.u2i
 			FlxG.resumeSounds();
 		}
 
-		public function destroyGame():void { FlxG.pauseSounds(); }
+		public function destroyGame():void {
+			FlxG.pauseSounds();
+			this.destroyGame();
+		}
 
 		override protected function onFocus(FlashEvent:Event=null):void	{ return; }
 		override protected function onFocusLost(FlashEvent:Event=null):void { return; }
