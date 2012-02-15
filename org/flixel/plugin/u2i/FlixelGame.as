@@ -36,7 +36,6 @@ package org.flixel.plugin.u2i
 
 		public function destroyGame():void {
 			FlxG.pauseSounds();
-			this.destroyGame();
 		}
 
 		override protected function onFocus(FlashEvent:Event=null):void	{ return; }
