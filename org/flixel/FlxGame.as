@@ -185,8 +185,8 @@ package org.flixel
 			
 			//basic display and update setup stuff
 			FlxG.init(this,GameSizeX,GameSizeY,Zoom);
-			//FlxG.framerate = GameFramerate;
-			//FlxG.flashFramerate = FlashFramerate;
+			FlxG.framerate = GameFramerate;
+			FlxG.flashFramerate = FlashFramerate;
 			_accumulator = _step;
 			_total = 0;
 			_state = null;

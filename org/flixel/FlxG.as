@@ -315,8 +315,12 @@ package org.flixel
 		static public function set flashFramerate(Framerate:Number):void
 		{
 			_game._flashFramerate = Framerate;
-			if(_game.root != null)
-				_game.stage.frameRate = _game._flashFramerate;
+			// u2i:
+			// _game.stage is null at this point when loading the game via framework, leading
+			// to null pointer exception, and the framerate will be adjusted later on anyway, so
+			// commenting these two lines out is a harmful solution to the problem
+			//if(_game.root != null)
+			//	_game.stage.frameRate = _game._flashFramerate;
 			_game._maxAccumulation = 2000/_game._flashFramerate - 1;
 			if(_game._maxAccumulation < _game._step)
 				_game._maxAccumulation = _game._step;
